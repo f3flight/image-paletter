@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    background: white;
+}
+
+.mainframe {
+    padding: 5vh;
+    width: 90vh;
+    height: 90vh;
+    overflow: hidden;
+    display: flex;
+}
+
+.imgdiv {
+    width: 75vh;
+}
+
+.imgdiv img {
+    width: 70vh;
+    height: 70vh;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    object-fit: cover;
+}
+
+#palette {
+    width: 10vh;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 5vh;
+}
+
+#palette > div {
+    width: 100%;
+}
+
+div {
+  page-break-inside: avoid;
+}

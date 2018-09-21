@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <link rel='stylesheet' type='text/css' href='css.css' />
+        <link rel='stylesheet' type='text/css' href='css.css' media='print'/>
+    </head>
+    <script>
+        const file_load = func => {
+            file_input = document.createElement('input');
+            file_input.setAttribute('type', 'file');
+            file_input.setAttribute('style', 'display: none');
+            file_input.addEventListener('change', func);
+            file_input.onerror = () => log('file_input - error');
+            file_input.click();
+        };
+        const loadhtml = el => {
+            const load_do = e => {
+                if (e.target.files.length > 0) {
+                    var file_reader = new FileReader();
+                    file_reader.onerror = function () {
+                    };
+                    file_reader.onloadend = function (e) {
+                        // format of "MUSTCOLOR" Android app when exporting
+                        var re = /HEX: (#[a-zA-Z0-9]{6})/g;
+                        var colors = [];
+                        let match;
+                        while (match = re.exec(e.target.result)) {
+                            colors.push(match[1]);
+                        };
+                        var palette = document.getElementById('palette');
+                        palette.innerHTML = '';
+                        var first = true;
+                        colors.forEach((el) => {
+                            let str = '';
+                            str += '<div onclick="loadhtml()" style="background-color:' + el;
+                            if (first) {
+                                first = false;
+                            } else {
+                                str +='; margin-top: 5px'
+                            }
+                            str += '"></div>';
+                            palette.innerHTML += str;
+                        });
+                    };
+                    file_reader.readAsText(e.target.files[0]);
+                }
+            };
+            file_load(load_do);
+            return false;
+        };
+        const loadimg = el => {
+            const load_do = e => {
+                if (e.target.files.length > 0) {
+                    var file_reader = new FileReader();
+                    file_reader.onerror = function () {
+                    };
+                    file_reader.onloadend = function (e) {
+                        el.src = e.target.result;
+                    };
+                    file_reader.readAsDataURL(e.target.files[0]);
+                }
+            };
+            file_load(load_do);
+            return false;
+        }
+    </script>
+    <body>
+        <div class='mainframe'>
+            <div class='imgdiv'>
+                <img onclick='loadimg(this)' />
+            </div>
+            <div id='palette'> 
+                <div onclick='loadhtml()' style='background-color: grey'></div>
+            </div>
+        </div>
+    </body>
+</html>
