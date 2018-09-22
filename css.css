@@ -1,29 +1,37 @@
+:root {
+    --outer-border: 5vh;
+    --img-width: 90%;
+    --inner-border: 5vh;
+}
+
 body {
     margin: 0;
     background-color: black;
 }
 
 .mainframe {
-    width: 98vh;
-    height: 98vh;
+    --mainframe-dims: calc(100vh - 2*var(--outer-border));
+    width: var(--mainframe-dims);
+    height: var(--mainframe-dims);
     overflow: hidden;
     display: flex;
     background-color: white;
-    padding: 1vh;
+    padding: var(--outer-border);
 }
 
 .imgdiv {
-    width: 90vh;
+    width: var(--img-width);
+    margin-right: var(--inner-border);
 }
 
 .imgdiv img {
-    width: 89vh;
-    height: 98vh;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
 }
 
 #palette {
-    width: 8vh;
+    width: calc(100% - var(--img-width));
     display: flex;
     flex-wrap: wrap;
 }
