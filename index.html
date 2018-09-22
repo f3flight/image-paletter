@@ -31,13 +31,13 @@
                         var first = true;
                         colors.forEach((el) => {
                             let str = '';
-                            str += '<div onclick="loadhtml()" style="background-color:' + el;
+                            str += '<div onclick="loadhtml()" style="background-color:' + el + '"';
                             if (first) {
                                 first = false;
                             } else {
-                                str +='; margin-top: 5px'
+                                str +=' class="follow"';
                             }
-                            str += '"></div>';
+                            str += '></div>';
                             palette.innerHTML += str;
                         });
                     };

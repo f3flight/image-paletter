@@ -1,39 +1,37 @@
 body {
     margin: 0;
-    background: white;
+    background-color: black;
 }
 
 .mainframe {
-    padding: 5vh;
-    width: 90vh;
-    height: 90vh;
+    width: 98vh;
+    height: 98vh;
     overflow: hidden;
     display: flex;
+    background-color: white;
+    padding: 1vh;
 }
 
 .imgdiv {
-    width: 75vh;
+    width: 90vh;
 }
 
 .imgdiv img {
-    width: 70vh;
-    height: 70vh;
-    margin-top: 10vh;
-    margin-bottom: 10vh;
-    object-fit: cover;
+    width: 89vh;
+    height: 98vh;
+    object-fit: contain;
 }
 
 #palette {
-    width: 10vh;
+    width: 8vh;
     display: flex;
     flex-wrap: wrap;
-    margin-right: 5vh;
 }
 
 #palette > div {
     width: 100%;
 }
 
-div {
-  page-break-inside: avoid;
+.follow {
+    margin-top: 1vh;
 }
