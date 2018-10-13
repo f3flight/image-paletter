@@ -1,9 +1,11 @@
 :root {
     --full-size: 1200px;
-    --outer-border: calc(var(--full-size)*0.05);
+    --outer-border: calc(var(--full-size) * 0.05);
     --inner-border: var(--outer-border);
-    --img-width: 90%;
-    --palette-gap: calc(var(--full-size)*0.01);
+    --mainframe-size: calc(var(--full-size) - 2*var(--outer-border));
+    --img-width: calc(var(--mainframe-size) * 0.85);
+    --palette-width: calc(var(--mainframe-size) - var(--img-width) - var(--inner-border));
+    --palette-gap: calc(var(--full-size) * 0.01);
 }
 
 body {
@@ -14,9 +16,8 @@ body {
 }
 
 .mainframe {
-    --mainframe-dims: calc(--full-size - 2*var(--outer-border));
-    width: var(--mainframe-dims);
-    height: var(--mainframe-dims);
+    width: var(--mainframe-size);
+    height: var(--mainframe-size);
     overflow: hidden;
     display: flex;
     background-color: white;
@@ -35,7 +36,7 @@ body {
 }
 
 #palette {
-    width: calc(100% - var(--img-width));
+    width: var(--palette-width);
     display: flex;
     flex-wrap: wrap;
 }
