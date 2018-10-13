@@ -1,16 +1,20 @@
 :root {
-    --outer-border: 5vh;
+    --full-size: 1200px;
+    --outer-border: calc(var(--full-size)*0.05);
+    --inner-border: var(--outer-border);
     --img-width: 90%;
-    --inner-border: 5vh;
+    --palette-gap: calc(var(--full-size)*0.01);
 }
 
 body {
     margin: 0;
     background-color: black;
+    width: var(--full-size);
+    height: var(--full-size);
 }
 
 .mainframe {
-    --mainframe-dims: calc(100vh - 2*var(--outer-border));
+    --mainframe-dims: calc(--full-size - 2*var(--outer-border));
     width: var(--mainframe-dims);
     height: var(--mainframe-dims);
     overflow: hidden;
@@ -41,5 +45,5 @@ body {
 }
 
 .follow {
-    margin-top: 1vh;
+    margin-top: var(--palette-gap);
 }

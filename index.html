@@ -3,6 +3,7 @@
         <link rel='stylesheet' type='text/css' href='css.css' />
         <link rel='stylesheet' type='text/css' href='css.css' media='print'/>
     </head>
+    <script src='/dom-to-image.min.js'></script>
     <script>
         const file_load = func => {
             file_input = document.createElement('input');
@@ -62,14 +63,25 @@
             file_load(load_do);
             return false;
         }
+        const save = el => {
+            domtoimage.toBlob(el).then(function (blob) {
+                var a = document.createElement('a'),
+                url = URL.createObjectURL(blob);
+                a.setAttribute('download', 'shot.png');
+                a.setAttribute('href', url);
+                a.click();
+                URL.revokeObjectURL(url);
+            });
+            return false;
+        };
     </script>
     <body>
-        <div class='mainframe'>
+        <div class='mainframe' onclick='save(this)'>
             <div class='imgdiv'>
-                <img onclick='loadimg(this)' />
+                <img onclick='loadimg(this); event.cancelBubble=true;' />
             </div>
             <div id='palette'> 
-                <div onclick='loadhtml()' style='background-color: grey'></div>
+                <div onclick='loadhtml(); event.cancelBubble=true;' style='background-color: grey'></div>
             </div>
         </div>
     </body>
