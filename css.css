@@ -1,5 +1,5 @@
 :root {
-    --full-size: 2400px;
+    --full-size: 1080px;
     --outer-border: calc(var(--full-size) * 0.05);
     --inner-border: var(--outer-border);
     --mainframe-size: calc(var(--full-size) - 2*var(--outer-border));
