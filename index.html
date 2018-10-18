@@ -63,8 +63,9 @@
             file_load(load_do);
             return false;
         }
-        const save = el => {
-            domtoimage.toBlob(el).then(function (blob) {
+        const save = () => {
+            save_obj = document.getElementById('save_me');
+            domtoimage.toBlob(save_obj).then(function (blob) {
                 var a = document.createElement('a'),
                 url = URL.createObjectURL(blob);
                 a.setAttribute('download', 'shot.png');
@@ -75,8 +76,8 @@
             return false;
         };
     </script>
-    <body>
-        <div class='mainframe' onclick='save(this)'>
+    <body onclick='save()'>
+        <div class='mainframe' id='save_me'>
             <div class='imgdiv'>
                 <img onclick='loadimg(this); event.cancelBubble=true;' />
             </div>
@@ -84,5 +85,6 @@
                 <div onclick='loadhtml(); event.cancelBubble=true;' style='background-color: grey'></div>
             </div>
         </div>
+        <input type='button' value="save" onclick='save()' />
     </body>
 </html>

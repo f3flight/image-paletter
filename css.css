@@ -1,11 +1,11 @@
 :root {
     --full-size: 1080px;
-    --outer-border: calc(var(--full-size) * 0.05);
-    --inner-border: var(--outer-border);
+    --outer-border: 0px;
+    --inner-border: 0px;
     --mainframe-size: calc(var(--full-size) - 2*var(--outer-border));
-    --img-width: calc(var(--mainframe-size) * 0.85);
-    --palette-width: calc(var(--mainframe-size) - var(--img-width) - var(--inner-border));
+    --img-width: calc(var(--mainframe-size) * 0.9);
     --palette-gap: calc(var(--full-size) * 0.01);
+    --palette-width: calc(var(--mainframe-size) - var(--img-width) - var(--palette-gap));
 }
 
 body {
@@ -26,13 +26,15 @@ body {
 
 .imgdiv {
     width: var(--img-width);
-    margin-right: var(--inner-border);
+    border-right: var(--palette-gap);
+    border-right-style: solid;
+    border-right-color: white;
 }
 
 .imgdiv img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 #palette {
